@@ -57,7 +57,7 @@
 }
 
 .home{
-    margin: 5% 10%;
+    margin: 4.95% 10%;
 }
 
 .caption{
@@ -82,6 +82,7 @@
     border: none;
     border-radius: 3rem;
     font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .action{
@@ -94,9 +95,7 @@ footer{
     padding: 1.5rem 0 1rem;
     display: flex;
     justify-content: space-evenly;
-    position: absolute;
     bottom: 0;
-    width: 100vw;
 }
 
 .contact{
@@ -106,4 +105,82 @@ footer{
 .contact>ul{
     list-style-type: none;
     padding-top: 0.5em;
+}
+
+
+/* Dashboard */
+
+.dashboard-title{
+    text-align: center;
+    padding: 1rem;
+}
+
+.dashboard-container{
+    padding: 1em;
+}
+
+#scholarships{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.scholarship-box{
+    padding: 1em;
+    border: 2px solid black;
+    border-radius: 1rem;
+    width: 90%;
+    margin: 0.5em 0;
+}
+
+.scholarship-title{
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.scholarship-link{
+    text-decoration: none;
+    color: black;
+}
+
+.scholarship-button{
+    display: block;
+    background-color: #27cf6a;
+    padding: 1rem;
+    margin: 1rem auto 0;
+    border: none;
+    border-radius: 3rem;
+    font-weight: bold;
+}
+
+/* Scholarship */
+
+#scholarship{
+    background-color: var(--green);
+}
+
+.scholarship-container{
+    background-color: white;
+    padding: 2rem;
+    width: 30%;
+    margin: 20vh auto;
+    line-height: 1.75;
+    border-radius: 2rem;
+}
+
+.scholarship-container>h1,h2{
+    text-align: center;
+}
+
+.scholarship-container>ul{
+    list-style-type: none;
+}
+
+/* Profile */
+
+.profile-title{
+    text-align: center;
+    margin: 7em;
 }
