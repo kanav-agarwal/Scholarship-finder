@@ -1,4 +1,5 @@
-let scholarshipData = JSON.parse(localStorage.getItem("currentScholarship"))
+// let scholarshipData = JSON.parse(localStorage.getItem("currentScholarship"))
+let scholarshipData = JSON.parse(document.cookie.split("=")[1])
 
 document.getElementById("scholarship-name").innerHTML = scholarshipData.name
 document.getElementById("scholarship-amount").innerHTML = "Amount: " + scholarshipData.amount
