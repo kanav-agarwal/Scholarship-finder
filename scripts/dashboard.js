@@ -14,8 +14,10 @@ async function loadScholarships() {
 }
 
 async function renderScholarships() {
-  await loadScholarships();             // Wait for data to be fetched
-  showScholarships(getFilteredScholarships())
+  if (!scholarshipData) {
+    await loadScholarships(); // Only load once
+  }
+  showScholarships(getFilteredScholarships());
 }
 
 function showScholarships(scholarshipData) {
@@ -62,26 +64,105 @@ function getFilteredScholarships(){
   let sat = document.getElementById("sat").value
   let act = document.getElementById("act").value
   let legalStatus = document.getElementById("legal-status").value
-  let lowIncome = document.getElementById("low-income").value
-  let firstGen = document.getElementById("first-gen").value
+  let lowIncome = document.getElementById("low-income").checked
+  let firstGen = document.getElementById("first-gen").checked
   let race = document.getElementById("race").value
 
-  let availableScholarships = scholarshipData.filter(function(scholarship){
-    if((JSON.stringify(Object.values(scholarship)).toLowerCase().includes(searchQuery))
-    && (scholarship.grade_requirement === grade || !scholarship.grade_requirement || !grade)
-    && (parseInt(scholarship.sat_score) <= sat || !scholarship.sat_score || !sat)
-    && (parseInt(scholarship.act_score) <= act || !scholarship.act_score || !act)
-    && (scholarship.us_legal_status === legalStatus || !scholarship.us_legal_status || !legalStatus)
-    && (scholarship.low_income === "Yes" && lowIncome === "low-income")
-    && (scholarship.first_gen === "Yes" && firstGen === "first-gen")
-    && (scholarship.race_requirement === race || !scholarship.race_requirement || !race)
-    ){
-      return true
-    }
-    return false
-  })
+  console.log(searchQuery + "\n" + grade + "\n" + sat + "\n" + act + "\n" + legalStatus + "\n" + lowIncome + "\n" + firstGen + "\n" + race)
 
+  // let availableScholarships = scholarshipData.filter(function(scholarship){
+  //   if((JSON.stringify(Object.values(scholarship)).toLowerCase().includes(searchQuery))
+  //   && (scholarship.grade_requirement === grade || !scholarship.grade_requirement || !grade)
+  //   && (parseInt(scholarship.sat_score) <= sat || !scholarship.sat_score || !sat)
+  //   && (parseInt(scholarship.act_score) <= act || !scholarship.act_score || !act)
+  //   && (scholarship.us_legal_status === legalStatus || !scholarship.us_legal_status || !legalStatus)
+  //   && (scholarship.low_income === "Yes" && lowIncome.checked)
+  //   && (scholarship.first_gen === "Yes" && firstGen.checked)
+  //   && (scholarship.race_requirement === race || !scholarship.race_requirement || !race)
+  //   ){
+  //     return true
+  //   }
+  //   return false
+  // })
+
+  let availableScholarships = scholarshipData.filter(function (scholarship) {
+    // Search query
+    if (searchQuery && !Object.values(scholarship).join(" ").toLowerCase().includes(searchQuery)) {
+      return false;
+    }
+
+    // Grade (if provided)
+    if (grade && scholarship.grade_requirement && scholarship.grade_requirement !== grade) {
+      return false;
+    }
+
+    // SAT (if provided)
+    if (sat && scholarship.sat_score && parseInt(scholarship.sat_score) > parseInt(sat)) {
+      return false;
+    }
+
+    // ACT (if provided)
+    if (act && scholarship.act_score && parseInt(scholarship.act_score) > parseInt(act)) {
+      return false;
+    }
+
+    // Legal status (if provided)
+    if (legalStatus && scholarship.us_legal_status && scholarship.us_legal_status !== legalStatus) {
+      return false;
+    }
+
+    // Low income (only filter if checkbox is checked)
+    if (lowIncome && scholarship.low_income !== "Yes") {
+      return false;
+    }
+
+    // First-gen (only filter if checkbox is checked)
+    if (firstGen && scholarship.first_gen !== "Yes") {
+      return false;
+    }
+
+    // Race (if provided)
+    if (race && scholarship.race_requirement && scholarship.race_requirement !== race) {
+      return false;
+    }
+
+    return true;
+  });
+
+  document.getElementById("count").innerText = availableScholarships.length
   return availableScholarships
+}
+
+function changeTheme(){
+  let storedTheme = localStorage.getItem("theme")
+  if(storedTheme){
+    if(storedTheme == "light"){
+      localStorage.setItem("theme", "dark")
+      makeDark()
+    }
+    else{
+      localStorage.setItem("theme", "light")
+      makeLight()
+    }
+  }
+  else{
+    localStorage.setItem("theme", "dark")
+    makeDark()
+  }
+}
+
+function makeDark(){
+  document.getElementById("theme-image").src = "moon.png"
+  document.getElementsByClassName("dashboard-container")[0].style.backgroundColor = "black"
+  document.getElementsByClassName("dashboard-container")[0].style.color = "white"
+  document.getElementsByClassName("scholarship-box").forEach(box => {box.style.borderColor = "white"});
+}
+
+function makeLight(){
+  document.getElementById("theme-image").src = "sun.png"
+  document.getElementsByClassName("dashboard-container")[0].style.backgroundColor = "white"
+  document.getElementsByClassName("dashboard-container")[0].style.color = "black"
+  document.getElementsByClassName("scholarship-box").forEach(box => {box.style.borderColor = "black"});
 }
 
 let open = false
@@ -96,8 +177,6 @@ document.getElementById("filter-button").addEventListener("click", function(){
     document.getElementById("filter-content").style.display = "none"
   }
 })
-
-document.getElementById("apply").onclick = renderScholarships()
 
 // Shows how much time user has spent on the page
 let sessionTime = parseInt(sessionStorage.getItem("sessionTime")) || 0;
@@ -121,8 +200,19 @@ const timer = setInterval(() => {
   document.getElementById("time").innerHTML = timeString
 }, 1000);
 
-// Apply Filters and Search
-document.getElementById('searchbar').addEventListener('input', function(){renderScholarships()})
 
-// Initially Render Scholarships
-renderScholarships();
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadScholarships();         // Load JSON only once
+  renderScholarships();             // Render initially
+
+  // Now safe to hook up event listeners
+  document.getElementById("apply").onclick = renderScholarships;
+  document.getElementById("searchbar").addEventListener("input", renderScholarships);
+});
+
+if(localStorage.getItem("theme") === "dark"){
+  makeDark()
+}
+else{
+  makeLight()
+}

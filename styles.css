@@ -28,10 +28,22 @@
     align-items: center;
 }
 
+#theme{
+    background-color: var(--green);
+    border: none;
+    
+}
+
+#theme>img{
+    width: 3rem;
+    height: 3rem;
+}
+
 .nav-list{
     list-style-type: none;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .nav-list>li>a{
@@ -100,11 +112,13 @@ footer{
 
 .contact{
     line-height: 2em;
+    color: black;
 }
 
 .contact>ul{
     list-style-type: none;
     padding-top: 0.5em;
+    color: black;
 }
 
 
@@ -120,11 +134,12 @@ footer{
     padding: 1em;
 }
 
-form{
+#filter-form{
     display: flex;
     flex-direction: column;
     padding: 0 10%;
     margin: 1rem;
+    color: black;
 }
 
 #filter{
@@ -139,6 +154,11 @@ form{
     margin: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
+    align-items: center;
+}
+
+#filter-content>div{
+    height: 3rem;
 }
 
 #searchbar{
@@ -163,6 +183,14 @@ form{
     font-size: 1.5em;
 }
 
+#scholarship-count{
+    margin-left: 2rem;
+}
+
+#count{
+    font-size: 1.5rem;
+}
+
 #scholarships{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -173,7 +201,8 @@ form{
 
 .scholarship-box{
     padding: 1em;
-    border: 2px solid black;
+    border-width: 2px;
+    border-style: solid;
     border-radius: 1rem;
     width: 90%;
     margin: 0.5em 0;
@@ -240,5 +269,5 @@ form{
 
 .profile-title{
     text-align: center;
-    margin: 7em;
+    margin: 14rem 7rem;
 }
