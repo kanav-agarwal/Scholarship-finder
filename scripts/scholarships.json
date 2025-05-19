@@ -61,7 +61,7 @@
     "us_legal_status": "Permanent Resident",
     "first_gen": "Yes",
     "low_income": "Yes",
-    "race_requirement": "No race requirement",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -100,7 +100,7 @@
     "us_legal_status": "U.S. Citizen",
     "first_gen": "Yes",
     "low_income": "Yes",
-    "race_requirement": "Any Minority",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -113,7 +113,7 @@
     "us_legal_status": "Permanent Resident",
     "first_gen": null,
     "low_income": null,
-    "race_requirement": "Any Minority",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -152,7 +152,7 @@
     "us_legal_status": "Permanent Resident",
     "first_gen": "Yes",
     "low_income": "Yes",
-    "race_requirement": "No race requirement",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -191,7 +191,7 @@
     "us_legal_status": "International",
     "first_gen": "Yes",
     "low_income": null,
-    "race_requirement": "Any Minority",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -217,7 +217,7 @@
     "us_legal_status": "Permanent Resident",
     "first_gen": null,
     "low_income": "Yes",
-    "race_requirement": "No race requirement",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -243,7 +243,7 @@
     "us_legal_status": "Permanent Resident",
     "first_gen": "Yes",
     "low_income": "Yes",
-    "race_requirement": "No race requirement",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -347,7 +347,7 @@
     "us_legal_status": "U.S. Citizen",
     "first_gen": null,
     "low_income": "Yes",
-    "race_requirement": "Any Minority",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -360,7 +360,7 @@
     "us_legal_status": "International",
     "first_gen": "Yes",
     "low_income": "Yes",
-    "race_requirement": "Any Minority",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -373,7 +373,7 @@
     "us_legal_status": "U.S. Citizen",
     "first_gen": "Yes",
     "low_income": null,
-    "race_requirement": "No race requirement",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -464,7 +464,7 @@
     "us_legal_status": "Permanent Resident",
     "first_gen": "Yes",
     "low_income": "Yes",
-    "race_requirement": "No race requirement",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -516,7 +516,7 @@
     "us_legal_status": "DACA",
     "first_gen": null,
     "low_income": null,
-    "race_requirement": "Any Minority",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -685,7 +685,7 @@
     "us_legal_status": "Permanent Resident",
     "first_gen": null,
     "low_income": null,
-    "race_requirement": "No race requirement",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -698,7 +698,7 @@
     "us_legal_status": "U.S. Citizen",
     "first_gen": "Yes",
     "low_income": "Yes",
-    "race_requirement": "No race requirement",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -737,7 +737,7 @@
     "us_legal_status": "U.S. Citizen",
     "first_gen": "Yes",
     "low_income": "Yes",
-    "race_requirement": "No race requirement",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -776,7 +776,7 @@
     "us_legal_status": "Permanent Resident",
     "first_gen": null,
     "low_income": "Yes",
-    "race_requirement": "Any Minority",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -802,7 +802,7 @@
     "us_legal_status": "U.S. Citizen",
     "first_gen": "Yes",
     "low_income": "Yes",
-    "race_requirement": "Any Minority",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -828,7 +828,7 @@
     "us_legal_status": "U.S. Citizen",
     "first_gen": null,
     "low_income": null,
-    "race_requirement": "No race requirement",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -841,7 +841,7 @@
     "us_legal_status": "DACA",
     "first_gen": "Yes",
     "low_income": "Yes",
-    "race_requirement": "No race requirement",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -1036,7 +1036,7 @@
     "us_legal_status": "DACA",
     "first_gen": null,
     "low_income": null,
-    "race_requirement": "Any Minority",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -1088,7 +1088,7 @@
     "us_legal_status": "DACA",
     "first_gen": "Yes",
     "low_income": null,
-    "race_requirement": "Any Minority",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -1231,7 +1231,7 @@
     "us_legal_status": "DACA",
     "first_gen": null,
     "low_income": null,
-    "race_requirement": "Any Minority",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {
@@ -1257,7 +1257,7 @@
     "us_legal_status": "U.S. Citizen",
     "first_gen": null,
     "low_income": "Yes",
-    "race_requirement": "No race requirement",
+    "race_requirement": null,
     "link": "scholarships.com"
   },
   {

@@ -58,7 +58,28 @@ function showScholarships(scholarshipData) {
 
 function getFilteredScholarships(){
   let searchQuery = document.getElementById("searchbar").value.toLowerCase()
-  let availableScholarships = scholarshipData.filter(function(scholarship){return JSON.stringify(Object.values(scholarship)).toLowerCase().includes(searchQuery)})
+  let grade = document.getElementById("grade").value
+  let sat = document.getElementById("sat").value
+  let act = document.getElementById("act").value
+  let legalStatus = document.getElementById("legal-status").value
+  let lowIncome = document.getElementById("low-income").value
+  let firstGen = document.getElementById("first-gen").value
+  let race = document.getElementById("race").value
+
+  let availableScholarships = scholarshipData.filter(function(scholarship){
+    if((JSON.stringify(Object.values(scholarship)).toLowerCase().includes(searchQuery))
+    && (scholarship.grade_requirement === grade || !scholarship.grade_requirement || !grade)
+    && (parseInt(scholarship.sat_score) <= sat || !scholarship.sat_score || !sat)
+    && (parseInt(scholarship.act_score) <= act || !scholarship.act_score || !act)
+    && (scholarship.us_legal_status === legalStatus || !scholarship.us_legal_status || !legalStatus)
+    && (scholarship.low_income === "Yes" && lowIncome === "low-income")
+    && (scholarship.first_gen === "Yes" && firstGen === "first-gen")
+    && (scholarship.race_requirement === race || !scholarship.race_requirement || !race)
+    ){
+      return true
+    }
+    return false
+  })
 
   return availableScholarships
 }
